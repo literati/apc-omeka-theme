@@ -7,6 +7,7 @@
     <?php endif; ?>
 
     <?php if (get_theme_option('Display Featured Item') !== '0'): ?>
+    
     <!-- Featured Item -->
     <div id="featured-item">
         <?php echo display_random_featured_item(); ?>
@@ -14,6 +15,7 @@
     <?php endif; ?>
 
     <?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
+    
     <!-- Featured Collection -->
     <div id="featured-collection">
         <?php echo display_random_featured_collection(); ?>
@@ -23,6 +25,7 @@
     <?php if ((get_theme_option('Display Featured Exhibit') !== '0')
             && plugin_is_active('ExhibitBuilder')
             && function_exists('exhibit_builder_display_random_featured_exhibit')): ?>
+    
     <!-- Featured Exhibit -->
     <?php echo exhibit_builder_display_random_featured_exhibit(); ?>
     <?php endif; ?>
@@ -30,6 +33,8 @@
 </div><!-- end primary -->
 
 <div id="secondary">
+
+<?php if (get_theme_option('Homepage Recent Items') !== '0'): ?>
 
     <div id="recent-items">
         <h2><?php echo __('Recently Added Items'); ?></h2>
@@ -68,7 +73,11 @@
 
         <?php endif; ?>
 
+        <?php endif; ?>
+
+        <?php if (get_theme_option('Display View All Link') !== '0'): ?>
         <p class="view-items-link"><a href="<?php echo html_escape(uri('items')); ?>"><?php echo __('View All Items'); ?></a></p>
+        <?php endif; ?>
 
     </div><!--end recent-items -->
 

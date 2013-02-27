@@ -2,9 +2,11 @@
 
         <div id="footer">
 
+            <?php if (get_theme_option('Display Footer Navigation') !== '0'): ?>
             <ul class="navigation">
                 <?php echo public_nav_main(array(__('Home') => uri(''), __('Browse Items') => uri('items'), __('Browse Collections') => uri('collections'))); ?>
             </ul>
+            <?php endif; ?>
 
             <div id="footer-text">
                 <?php echo get_theme_option('Footer Text'); ?>
