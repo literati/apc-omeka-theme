@@ -19,15 +19,15 @@
 
     <!-- Stylesheets -->
     <?php
-    queue_css(array('style', 'app', 'foundation'));
+    queue_css(array('style', 'app', 'foundation.min'));
     display_css();
     ?>
 
     <!-- JavaScripts -->
-    <?php display_js(); ?>
-
-    <!-- Foundation JS Files -->
-    <script src="javascripts/modernizr.foundation.js"></script>
+    <?php 
+    queue_js(array('modernizr.foundation', 'foundation.min', 'jquery', 'app'));
+    display_js(); 
+    ?>
 
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
