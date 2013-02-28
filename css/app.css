@@ -4,26 +4,148 @@
    Table of Contents
 -----------------------------------------------------
 :: Shared Styles
-:: Page Name 1
-:: Page Name 2
+:: Front Page
+:: Stories
+:: Reading Mode
 */
 
 
 /* -----------------------------------------
    Shared Styles
 ----------------------------------------- */
+body{
+	background: #000 url('../images/back.jpg') repeat fixed; 
+}
 
+p {
+	color: white;
+	font-family: 'Alice';
+	font-size: 15px;
+}
+
+h1 {
+	font-family: 'Abel', sans-serif;
+}
+
+h5 {
+	font-size: 18px; font-weight: bold; font-family: 'Alice', serif; color: white;
+}
+
+p {
+	font-family: 'Alice', serif;
+}
+
+.top-bar > ul .name h1 a { font-weight: bold; padding: 0 22.5px; font-size: 35px !important; color: #fb6705; }
+.top-bar section ul li a { font-size: 18px !important; font-weight: bold !important; font-family: 'Alice'; }
+.top-bar { 
+	background-color: rgb(0,0,0);
+	background-color:rgba(0,0,0, 0.8); 
+	height: 45px; line-height: 45px; margin: 0 0 30px; padding: 0; width: 100%;
+}
+
+ul.accordion > li { list-style: none; margin: 0; padding: 0; border-top: 0px solid #e9e9e9; }
+ul.accordion > li.active { border-top: 3px solid #fb6705; }
+ul.accordion > li.active .title { background-color:rgba(0,0,0, 0.8);}
+ul.accordion > li > div.title { cursor: pointer; background-color:rgba(0,0,0, 0.7); padding: 15px; margin: 0; position: relative; border: solid 0px #e6e6e6; -webkit-transition: 0.15s background linear; -moz-transition: 0.15s background linear; -o-transition: 0.15s background linear; transition: 0.15s background linear; }
+ul.accordion > li.active .content { background-color:rgba(0,0,0, 0.8); display: block; border: 0px solid #e9e9e9; }
+
+.panel { 
+	background-color: rgb(0,0,0);
+	background-color:rgba(0,0,0, 0.8); 
+	border: solid 0 #e6e6e6; 
+	margin: 0 0 22px 0; 
+	padding: 20px; 
+}
+
+table, table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td { 
+	text-align: center; 
+	vertical-align: bottom;
+	background-color: transparent;
+	border: none;
+}
+
+table tbody tr:nth-child(even) { 
+	background-color: transparent;
+}
+
+.bottomImg {
+	width: 100%;
+	height: 39px;
+	position:fixed;
+	bottom:0;
+	margin:0 auto;
+	background: url('../images/bottom.png') bottom center repeat-x fixed;
+}
+
+.story {
+	height: 750px;
+	height: 75vh;
+}
+
+.storytitle h5{
+	display:inline;
+}
+
+.storytitle .button{
+	float:right;
+}
+
+.panel.whiteout .button { 
+color:white;
+}
+
+.panel.whiteout { 
+	background: #fff; 
+	color: #000; 
+	border-color: #2284a1;
+	overflow: scroll;
+	-webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
+	-moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
+}
+.panel.whiteout a { color: #000; }
+.panel.whiteout p { color: #000; font-family: 'Alice', serif}
+.panel.whiteout h5 {font-size: 18px; font-weight: bold; font-family: 'Alice', serif; color: #000;
+}
+
+#map { height: 180px; }
+
+.mapIF{
+	margin: 0;
+	padding: 0;
+	border: none;
+	width: 100%;
+	height: 520px;
+}
+
+.timeIF {
+	margin: 0;
+	padding: 0;
+	border: none;
+	width: 100%;
+	height: 520px;
+}
+
+.metainfo {
+}
+    
+
+/* -----------------------------------------
+   Omeka Elements
+----------------------------------------- */
+#site-title{
+	text-transform: uppercase;
+}
 
 
 /* -----------------------------------------
-   Page Name 1
+   Stories
 ----------------------------------------- */
 
 
 
-
 /* -----------------------------------------
-   Page Name 2
+   Reading Mode
 ----------------------------------------- */
 
 

@@ -1,5 +1,5 @@
 <?php head(array('bodyid'=>'home')); ?>
-
+ 
 <div id="primary">
 
     <?php if (get_theme_option('Homepage Text')): ?>
