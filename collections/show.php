@@ -1,5 +1,6 @@
 <?php head(array('title'=>collection('Name'), 'bodyid'=>'collections', 'bodyclass' => 'show')); ?>
 
+
 <div id="primary">
     <h1><?php echo collection('Name'); ?></h1>
 

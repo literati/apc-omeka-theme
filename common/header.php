@@ -30,9 +30,11 @@
 
     <!-- JavaScripts -->
     <?php 
-    queue_js(array('modernizr.foundation', 'foundation.min', 'jquery', 'app'));
+    queue_js(array('modernizr.foundation', 'foundation.min', 'jquery', 'app', 'jquery.foundation.orbit'));
     display_js(); 
-    ?></head>
+    ?>
+
+</head>
     <?php echo body_tag(array('id' =>
     @$bodyid, 'class' => @$bodyclass)); ?>
     <?php plugin_body(); ?>
@@ -93,8 +95,8 @@
         </div>
         <!-- END Header -->
 
-        <!-- end primary-nav -->
         <?php echo custom_header_image(); ?>
 
         <div id="content">
             <?php plugin_page_content(); ?>
+

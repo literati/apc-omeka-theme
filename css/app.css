@@ -27,8 +27,38 @@ h1 {
 	font-family: 'Abel', sans-serif;
 }
 
+
+
+h2 {
+	font-size: 18px; 
+	font-weight: bold; 
+	font-family: 'Alice', serif; 
+	color: white;
+	text-transform: uppercase;
+	margin-top:0;
+}
+
+h3 {
+	font-family: 'Abel';
+	font-weight: bolder;
+	font-size: 27px; 
+	color: #2ba6cb;
+}
+
+h4 {
+	font-size: 18px; 
+	font-weight: bold;
+	font-family: 'Abel';
+	color: #2ba6cb;
+}
+
+
 h5 {
-	font-size: 18px; font-weight: bold; font-family: 'Alice', serif; color: white;
+	font-size: 15px; 
+	font-weight: bold; 
+	font-family: 'Alice', serif; 
+	color: white;
+	text-transform: uppercase;
 }
 
 p {
@@ -77,6 +107,11 @@ table tbody tr:nth-child(even) {
 	background: url('../images/bottom.png') bottom center repeat-x fixed;
 }
 
+.footer p {
+	text-align: center;
+	margin-bottom: 0px;
+}
+
 .story {
 	height: 750px;
 	height: 75vh;
@@ -90,6 +125,12 @@ table tbody tr:nth-child(even) {
 	float:right;
 }
 
+/*.panel {
+	border-top-color: rgb(251, 103, 5);
+	border-top-style: solid;
+	border-top-width: 3px;
+}*/
+
 .panel.whiteout .button { 
 color:white;
 }
@@ -99,13 +140,40 @@ color:white;
 	color: #000; 
 	border-color: #2284a1;
 	overflow: scroll;
-	-webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
-	-moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
-	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5); 
+	-webkit-box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.5); 
+	-moz-box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.5); 
+	box-shadow: inset 0px 1px 0px rgba(0, 0, 0, 0.5); 
 }
-.panel.whiteout a { color: #000; }
-.panel.whiteout p { color: #000; font-family: 'Alice', serif}
-.panel.whiteout h5 {font-size: 18px; font-weight: bold; font-family: 'Alice', serif; color: #000;
+.panel.whiteout a { 
+	color: grey; 
+}
+
+.panel.whiteout p { 
+	color: #000; 
+	font-family: 'Alice', serif
+}
+
+.panel.whiteout h2 {
+	font-size: 18px; 
+	font-weight: bold; 
+	font-family: 'Alice', serif; 
+	color: #000;
+}
+
+.panel.whiteout h3 a{
+	color: #000;
+}
+
+.panel.whiteout h4 a{
+	color: #000;
+}
+
+.panel.whiteout h4 {
+	margin-bottom: 0px;
+}
+
+.panel.whiteout a:hover{
+	color: #2ba6cb;
 }
 
 #map { height: 180px; }
@@ -135,6 +203,10 @@ color:white;
 ----------------------------------------- */
 #site-title{
 	text-transform: uppercase;
+}
+
+.view-items-link {
+	margin-top:10px;
 }
 
 
