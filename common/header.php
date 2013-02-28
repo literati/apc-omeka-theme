@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html lang="<?php echo get_html_lang(); ?>">
+<html class="no-js" lang="<?php echo get_html_lang(); ?>">
 <head>
     <meta charset="utf-8">
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
     <?php if ( $description = settings('description')): ?>
     <meta name="description" content="<?php echo $description; ?>" />
     <?php endif; ?>
@@ -15,14 +19,17 @@
 
     <!-- Stylesheets -->
     <?php
-    queue_css('style');
+    queue_css(array('style', 'app', 'foundation'));
     display_css();
     ?>
 
     <!-- JavaScripts -->
     <?php display_js(); ?>
-</head>
 
+    <!-- Foundation JS Files -->
+    <script src="javascripts/modernizr.foundation.js"></script>
+
+</head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
     <?php plugin_body(); ?>
     <div id="wrap">
