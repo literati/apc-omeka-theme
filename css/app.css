@@ -24,6 +24,7 @@ p {
 }
 
 h1 {
+	text-transform: uppercase;
 	font-family: 'Abel', sans-serif;
 }
 
@@ -64,6 +65,11 @@ h5 {
 p {
 	font-family: 'Alice', serif;
 }
+
+div {
+	font-family: 'Alice', serif;
+}
+
 
 .top-bar > ul .name h1 a { font-weight: bold; padding: 0 22.5px; font-size: 35px !important; color: #fb6705; }
 .top-bar section ul li a { font-size: 18px !important; font-weight: bold !important; font-family: 'Alice'; }
@@ -107,7 +113,7 @@ table tbody tr:nth-child(even) {
 	background: url('../images/bottom.png') bottom center repeat-x fixed;
 }
 
-.footer p {
+#footer p {
 	text-align: center;
 	margin-bottom: 0px;
 }
@@ -201,8 +207,8 @@ color:white;
 /* -----------------------------------------
    Omeka Elements
 ----------------------------------------- */
-#site-title{
-	text-transform: uppercase;
+#scripts {
+	display: none;
 }
 
 .view-items-link {

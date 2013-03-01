@@ -1,15 +1,28 @@
 <?php head(array('title' => item('Dublin Core', 'Title'), 'bodyid'=>'items','bodyclass' => 'show')); ?>
 
-<div id="primary">
+<div class="row">
+    <div class="twelve columns">
+        <div class="panel">
 
-    <h1><?php echo item('Dublin Core', 'Title'); ?></h1>
+    <div class="eight columns">
+        <div class="panel whiteout radius">
+                    <h3><?php echo item('Dublin Core', 'Title'); ?></h3>
+        </div>
+    </div>
+    <div class="four columns">
+        <div class="panel whiteout radius">
 
-    <?php echo custom_show_item_metadata(); ?>
+
+            <?php echo custom_show_item_metadata(); ?>
+
+
+
+
 
     <!-- The following returns all of the files associated with an item. -->
     <div id="itemfiles" class="element">
         <h3><?php echo __('Files'); ?></h3>
-        <div class="element-text"><?php echo display_files_for_item(); ?></div>
+        <div class="element-text"><p><?php echo display_files_for_item(); ?></p></div>
     </div>
 
     <!-- If the item belongs to a collection, the following creates a link to that collection. -->
@@ -31,7 +44,10 @@
     <!-- The following prints a citation for this item. -->
     <div id="item-citation" class="element">
         <h3><?php echo __('Citation'); ?></h3>
-        <div class="element-text"><?php echo item_citation(); ?></div>
+        <div class="element-text"><p><?php echo item_citation(); ?></p></div>
+    </div>
+
+            </div>
     </div>
 
     <?php echo plugin_append_to_items_show(); ?>
@@ -40,7 +56,9 @@
         <li id="previous-item" class="previous"><?php echo link_to_previous_item(); ?></li>
         <li id="next-item" class="next"><?php echo link_to_next_item(); ?></li>
     </ul>
-
+</div>
 </div><!-- end primary -->
+</div>
+
 
 <?php foot(); ?>

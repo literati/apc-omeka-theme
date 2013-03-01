@@ -32,71 +32,64 @@
     <?php 
     queue_js(array('modernizr.foundation', 'foundation.min', 'jquery', 'app', 'jquery.foundation.orbit'));
     display_js(); 
-    ?>
-
-</head>
+    ?></head>
     <?php echo body_tag(array('id' =>
     @$bodyid, 'class' => @$bodyclass)); ?>
     <?php plugin_body(); ?>
     <div id="wrap">
+    <div id="header">
+        <?php plugin_page_header();?>
 
-        <!-- BEGIN Header -->
-        <div id="header">
-            <?php plugin_page_header();?>
+        <div class="row">
+            <div class="twelve columns">
 
-            <div class="row">
-                <div class="twelve columns">
-
-                    <nav class="top-bar contain-to-grid">
-                        <ul>
-                            <li class="name">
-                                <h1>
-                                    <div id="site-title">
-                                        <?php echo link_to_home_page(custom_display_logo()); ?></div>
-                                </h1>
-                            </li>
-                            <li class="toggle-topbar">
-                                <a href="#"></a>
+                <nav class="top-bar contain-to-grid">
+                    <ul>
+                        <li class="name">
+                            <h1>
+                                <?php echo link_to_home_page(custom_display_logo()); ?></h1>
+                        </li>
+                        <li class="toggle-topbar">
+                            <a href="#"></a>
+                        </li>
+                    </ul>
+                    <section>
+                        <ul class="left">
+                            <li class="has-dropdown">
+                                <a href="<?php echo uri('collections'); ?>">COLLECTIONS</a>
+                                <ul class="dropdown">
+                                    <?php set_collections_for_loop(recent_collections(10)); ?>
+                                    <?php if (has_collections_for_loop()): ?>
+                                    <ul class="collections-list">
+                                        <?php while (loop_collections()): ?>
+                                        <li class="collection">
+                                            <?php echo link_to_collection(); ?></li>
+                                        <?php endwhile; ?></ul>
+                                    <?php else: ?>
+                                    <p>No recent collections available.</p>
+                                    <?php endif; ?></ul>
                             </li>
                         </ul>
-                        <section>
-                            <ul class="left">
-                                <li class="has-dropdown">
-                                    <a href="<?php echo uri('collections'); ?>">COLLECTIONS</a>
-                                    <ul class="dropdown">
+                        <ul class="right">
+                            <li class="search">
+                                <div id="search-container">
+                                    <form class="collapse" action="/omeka/items/browse" method="get">
+                                        <input type="text" name="search" id="search" value="" class="textinput">
+                                        <button type="submit" name="submit_search" value="Search" class="secondary radius button">Search</button>
+                                    </form>
+                                </div>
+                                <!-- end search --> </li>
+                        </ul>
+                    </section>
+                </nav>
 
-                                        <?php set_collections_for_loop(recent_collections(10)); ?>
-                                        <?php if (has_collections_for_loop()): ?>
-                                        <ul class="collections-list">
-                                            <?php while (loop_collections()): ?>
-                                            <li class="collection">
-                                                <?php echo link_to_collection(); ?></li>
-                                            <?php endwhile; ?></ul>
-                                        <?php else: ?>
-                                        <p>No recent collections available.</p>
-                                        <?php endif; ?></ul>
-                                </li>
-                            </ul>
-                            <ul class="right">
-                                <li class="search">
-                                    <div id="search-container">
-                                        <form class="collapse" action="/omeka/items/browse" method="get">
-                                            <input type="text" name="search" id="search" value="" class="textinput">
-                                            <button type="submit" name="submit_search" value="Search" class="secondary radius button">Search</button>
-                                        </form>
-                                    </div>
-                                    <!-- end search --> </li>
-                            </ul>
-                        </section>
-                    </nav>
-
-                </div>
             </div>
         </div>
-        <!-- END Header -->
 
-        <?php echo custom_header_image(); ?>
+    </div>
+    <!-- end div id header -->
 
-        <div id="content">
-            <?php plugin_page_content(); ?>
+    <?php echo custom_header_image(); ?>
 
+    <div id="content">
+        <?php plugin_page_content(); ?>
