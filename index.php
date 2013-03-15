@@ -8,10 +8,46 @@
         <div class="panel">
             <h2>Featured Items</h2>
             <div id="featured">
-                <img src="javascripts/holder.js/1200x250/text:Slide_1" alt="slide image">
-                <img src="javascripts/holder.js/1200x250/text:Slide_2" alt="slide image">
-                <img src="javascripts/holder.js/1200x250/text:Slide_3" alt="slide image">
-            </div>
+               
+                    <?php
+
+    // is cURL installed yet?
+    if (!function_exists('curl_init')){
+        die('Sorry cURL is not installed!');
+    }
+ 
+    // OK cool - then let's create a new cURL resource handle
+    $ch = curl_init();
+ 
+    $Url = 'http://literati.cct.lsu.edu/omeka/images/full/200/0';
+
+    // Now set some options (most are optional)
+ 
+    // Set URL to download
+    curl_setopt($ch, CURLOPT_URL, $Url);
+ 
+    // Include header in result? (0 = yes, 1 = no)
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+ 
+    // Should cURL return or print out the data? (true = return, false = print)
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ 
+    // Timeout in seconds
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+ 
+    // Download the given URL, and return output
+    $output = curl_exec($ch);
+ 
+    // Close the cURL resource, and free system resources
+    curl_close($ch);
+ 
+    echo $output;
+
+
+?>
+
+
+               </div>
         </div>
     </div>
 </div>
