@@ -48,61 +48,26 @@ item('Dublin Core', 'Title'), 'bodyid'=>'items','bodyclass' => 'show')); ?>
 </div>
 
             </div>
+
+
             <div class="four columns">
+            <div class="panel whiteout radius storyrow">
 
-                
-
-<ul class="accordion">
-    <li class="active">
 
                     <div class="title">
                         <h3><?php echo ('Images'); ?></h3>
                     </div>
                         <div class="content">
 
-                    <?php
-
-    // is cURL installed yet?
-    if (!function_exists('curl_init')){
-        die('Sorry cURL is not installed!');
-    }
- 
-    // OK cool - then let's create a new cURL resource handle
-    $ch = curl_init();
- 
-    $Url = 'http://literati.cct.lsu.edu/omeka/images/full/200/0';
-
-    // Now set some options (most are optional)
- 
-    // Set URL to download
-    curl_setopt($ch, CURLOPT_URL, $Url);
- 
-    // Include header in result? (0 = yes, 1 = no)
-    curl_setopt($ch, CURLOPT_HEADER, 0);
- 
-    // Should cURL return or print out the data? (true = return, false = print)
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- 
-    // Timeout in seconds
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
- 
-    // Download the given URL, and return output
-    $output = curl_exec($ch);
- 
-    // Close the cURL resource, and free system resources
-    curl_close($ch);
- 
-    echo $output;
-
-
-?>
+<img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" />
+<img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" /><img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" /><img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" /><img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" /><img src ="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQINeeBGKgGqnsqIxitu0kat-edei-Zx_Ny7AD_GdHPeMlxt3t2" />
 
 
                         </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="panel whiteout radius storyrow">
+
+
+
+
 
                     <div id="annotations" class="element">
                         <h3>
@@ -122,8 +87,12 @@ item('Dublin Core', 'Title'), 'bodyid'=>'items','bodyclass' => 'show')); ?>
                         </div>
                     </div>
 
+<?php echo custom_show_item_metadata(); ?>
+
+
                 </div>
-            </div>
+
+            </div> <!-- end four columns row -->
 
             <?php echo plugin_append_to_items_show(); ?>
 
