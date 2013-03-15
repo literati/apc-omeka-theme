@@ -1,64 +1,152 @@
-<?php head(array('title' => item('Dublin Core', 'Title'), 'bodyid'=>'items','bodyclass' => 'show')); ?>
-
+<?php head(array('title' =>
+item('Dublin Core', 'Title'), 'bodyid'=>'items','bodyclass' => 'show')); ?>
 <div class="row">
     <div class="twelve columns">
         <div class="panel">
 
-    <div class="eight columns">
-        <div class="panel whiteout radius">
+            <div class="eight columns">
+                <div class="panel whiteout radius storyrow">
                     <h3><?php echo item('Dublin Core', 'Title'); ?></h3>
-        </div>
-    </div>
-    <div class="four columns">
-        <div class="panel whiteout radius">
+
+                    <?php
+
+    // is cURL installed yet?
+    if (!function_exists('curl_init')){
+        die('Sorry cURL is not installed!');
+    }
+ 
+    // OK cool - then let's create a new cURL resource handle
+    $ch = curl_init();
+ 
+    $Url = 'http://literati.cct.lsu.edu/omeka/tales/oblong-box/text';
+
+    // Now set some options (most are optional)
+ 
+    // Set URL to download
+    curl_setopt($ch, CURLOPT_URL, $Url);
+ 
+    // Include header in result? (0 = yes, 1 = no)
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+ 
+    // Should cURL return or print out the data? (true = return, false = print)
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ 
+    // Timeout in seconds
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+ 
+    // Download the given URL, and return output
+    $output = curl_exec($ch);
+ 
+    // Close the cURL resource, and free system resources
+    curl_close($ch);
+ 
+    echo $output;
 
 
-            <?php echo custom_show_item_metadata(); ?>
+?>
 
-
-
-
-
-    <!-- The following returns all of the files associated with an item. -->
-    <div id="itemfiles" class="element">
-        <h3><?php echo __('Files'); ?></h3>
-        <div class="element-text"><p><?php echo display_files_for_item(); ?></p></div>
-    </div>
-
-    <!-- If the item belongs to a collection, the following creates a link to that collection. -->
-    <?php if (item_belongs_to_collection()): ?>
-    <div id="collection" class="element">
-        <h3><?php echo __('Collection'); ?></h3>
-        <div class="element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
-    </div>
-    <?php endif; ?>
-
-    <!-- The following prints a list of all tags associated with the item -->
-    <?php if (item_has_tags()): ?>
-    <div id="item-tags" class="element">
-        <h3><?php echo __('Tags'); ?></h3>
-        <div class="element-text"><?php echo item_tags_as_string(); ?></div>
-    </div>
-    <?php endif;?>
-
-    <!-- The following prints a citation for this item. -->
-    <div id="item-citation" class="element">
-        <h3><?php echo __('Citation'); ?></h3>
-        <div class="element-text"><p><?php echo item_citation(); ?></p></div>
-    </div>
+</div>
 
             </div>
+            <div class="four columns">
+
+                
+
+<ul class="accordion">
+    <li class="active">
+
+                    <div class="title">
+                        <h3><?php echo ('Images'); ?></h3>
+                    </div>
+                        <div class="content">
+
+                    <?php
+
+    // is cURL installed yet?
+    if (!function_exists('curl_init')){
+        die('Sorry cURL is not installed!');
+    }
+ 
+    // OK cool - then let's create a new cURL resource handle
+    $ch = curl_init();
+ 
+    $Url = 'http://literati.cct.lsu.edu/omeka/images/full/200/0';
+
+    // Now set some options (most are optional)
+ 
+    // Set URL to download
+    curl_setopt($ch, CURLOPT_URL, $Url);
+ 
+    // Include header in result? (0 = yes, 1 = no)
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+ 
+    // Should cURL return or print out the data? (true = return, false = print)
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+ 
+    // Timeout in seconds
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+ 
+    // Download the given URL, and return output
+    $output = curl_exec($ch);
+ 
+    // Close the cURL resource, and free system resources
+    curl_close($ch);
+ 
+    echo $output;
+
+
+?>
+
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="panel whiteout radius storyrow">
+
+                    <div id="annotations" class="element">
+                        <h3>
+                            <?php echo ('Annotations'); ?></h3>
+                        <div class="element-text">
+                            <p>
+                                <?php echo display_files_for_item(); ?></p>
+                        </div>
+                    </div>
+
+                    <div id="events" class="element">
+                        <h3>
+                            <?php echo ('Events'); ?></h3>
+                        <div class="element-text">
+                            <p>
+                                <?php echo display_files_for_item(); ?></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <?php echo plugin_append_to_items_show(); ?>
+
+            <ul class="item-pagination navigation">
+                <li id="previous-item" class="previous">
+                    <?php echo link_to_previous_item(); ?></li>
+                <li id="next-item" class="next">
+                    <?php echo link_to_next_item(); ?></li>
+            </ul>
+        </div>
+
+    <!-- end primary -->
+</div>
+</div>
+
+<div class="row">
+    <div class="twelve columns">
+        <div class="panel">
+            <div class="panel whiteout radius">
+                <iframe seamless width="100%" height="500px" src=" http://literati.cct.lsu.edu/timeline/timeline.php"></iframe>
+            </div>
+        </div>
     </div>
-
-    <?php echo plugin_append_to_items_show(); ?>
-
-    <ul class="item-pagination navigation">
-        <li id="previous-item" class="previous"><?php echo link_to_previous_item(); ?></li>
-        <li id="next-item" class="next"><?php echo link_to_next_item(); ?></li>
-    </ul>
 </div>
-</div><!-- end primary -->
-</div>
-
 
 <?php foot(); ?>

@@ -2,10 +2,13 @@
 $pageTitle = __('Browse Items');
 head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
 ?>
-
+<div class="row">
+    <div class="twelve columns">
+    <div class="panel">
 <div id="primary">
 
     <h1><?php echo $pageTitle;?> <?php echo __('(%s total)', total_results()); ?></h1>
+        <div class="panel whiteout radius">
 
     <ul class="items-nav navigation" id="secondary-nav">
         <?php echo custom_nav_items(); ?>
@@ -16,8 +19,8 @@ head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
     <?php while (loop_items()): ?>
     <div class="item hentry">
         <div class="item-meta">
-
-        <h2><?php echo link_to_item(item('Dublin Core', 'Title'), array('class'=>'permalink')); ?></h2>
+<hr />
+        <h3><?php echo link_to_item(item('Dublin Core', 'Title'), array('class'=>'permalink')); ?></h3>
 
         <?php if (item_has_thumbnail()): ?>
         <div class="item-img">
@@ -52,5 +55,9 @@ head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
     <?php echo plugin_append_to_items_browse(); ?>
 
 </div><!-- end primary -->
+</div>
+</div>
+</div>
+</div>
 
 <?php foot(); ?>

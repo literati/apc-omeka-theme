@@ -1,8 +1,13 @@
 <?php head(array('title'=>collection('Name'), 'bodyid'=>'collections', 'bodyclass' => 'show')); ?>
 
+<div class="row">
+    <div class="twelve columns">
+    <div class="panel">
 
 <div id="primary">
     <h1><?php echo collection('Name'); ?></h1>
+
+    <div class="panel whiteout radius">
 
     <div id="description" class="element">
         <h2><?php echo __('Description'); ?></h2>
@@ -51,5 +56,9 @@
     <?php echo plugin_append_to_collections_show(); ?>
 
 </div><!-- end primary -->
+</div>
+</div>
+</div>
+</div>
 
 <?php foot(); ?>

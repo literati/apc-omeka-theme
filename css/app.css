@@ -26,6 +26,7 @@ p {
 h1 {
 	text-transform: uppercase;
 	font-family: 'Abel', sans-serif;
+	color:white;
 }
 
 
@@ -202,6 +203,10 @@ color:white;
 
 .metainfo {
 }
+
+.storyrow {
+	height:750px;
+}
     
 
 /* -----------------------------------------
@@ -213,6 +218,28 @@ color:white;
 
 .view-items-link {
 	margin-top:10px;
+}
+
+#secondary-nav li {
+	display: inline;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	border-right-width: 1px;
+	padding: 2px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: grey;
+}
+
+.pagination li {
+	display: inline;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	border-right-width: 1px;
+	padding: 2px;
+	border-left-width: 1px;
+	border-style: solid;
+	border-color: grey;
 }
 
 

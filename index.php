@@ -8,44 +8,7 @@
         <div class="panel">
             <h2>Featured Items</h2>
             <div id="featured">
-<?php
-
-    // is cURL installed yet?
-    if (!function_exists('curl_init')){
-        die('Sorry cURL is not installed!');
-    }
- 
-    // OK cool - then let's create a new cURL resource handle
-    $ch = curl_init();
- 
-    $Url = 'http://literati.cct.lsu.edu/omeka/images/full';
-
-    // Now set some options (most are optional)
- 
-    // Set URL to download
-    curl_setopt($ch, CURLOPT_URL, $Url);
- 
- 
- 
-    // Include header in result? (0 = yes, 1 = no)
-    curl_setopt($ch, CURLOPT_HEADER, 0);
- 
-    // Should cURL return or print out the data? (true = return, false = print)
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- 
-    // Timeout in seconds
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
- 
-    // Download the given URL, and return output
-    $output = curl_exec($ch);
- 
-    // Close the cURL resource, and free system resources
-    curl_close($ch);
- 
-    echo $output;
-
-
-?>                <img src="javascripts/holder.js/1200x250/text:Slide_1" alt="slide image">
+                <img src="javascripts/holder.js/1200x250/text:Slide_1" alt="slide image">
                 <img src="javascripts/holder.js/1200x250/text:Slide_2" alt="slide image">
                 <img src="javascripts/holder.js/1200x250/text:Slide_3" alt="slide image">
             </div>
@@ -67,12 +30,12 @@
     <div class="twelve columns">
         <div class="panel">
             <h2>TIMELINE</h2>
+            <iframe seamless width="100%" height="500px" src=" http://literati.cct.lsu.edu/timeline/timeline.php"></iframe>
             <div id="my-timeline"></div>
         </div>
     </div>
 </div>
 
-<!-- Featured Collection -->
 <?php if (get_theme_option('Display Featured Collection') !== '0'): ?>
 <div class="row">
     <div class="twelve columns">
@@ -80,23 +43,29 @@
             <h2>Featured Collection</h2>
             <div class="panel whiteout radius">
 
-<?php
+                <?php
+                    $collection = random_featured_collection();
+                    set_current_collection($collection);
+                    echo '<h3>'.link_to_collection().'</h3>';
+                    echo collection('Description', array('snippet' => 200)); 
 
-
-
- 
-$collection = random_featured_collection();
-set_current_collection($collection);
-echo '<h3>'.link_to_collection().'</h3>';
-
-                    $items = get_items(array('collection' => 'Tales'), 20);
+                    $items = get_items(array('collection' => $collection, 'featured' => true), 10);
                     set_items_for_loop($items);
                     while(loop_items()):
                 ?>
 
                 <hr />
-                <h4><?php echo link_to_item(); ?></h4>
-                <p><?php echo item('Dublin Core', 'Description'); ?></p>
+                <?php 
+
+                echo '<h4>'.link_to_item().'</h4>'; ?>
+
+                <p><?php echo item('Dublin Core', 'Description'); 
+
+                    if(item_square_thumbnail()) {
+                        echo '<div class="collection-thumb">'.item_square_thumbnail().'</div>'; 
+                    }
+
+                ?></p>
 
                 <?php endwhile; ?>
 
@@ -107,12 +76,11 @@ echo '<h3>'.link_to_collection().'</h3>';
                 </p>
 
             </div>
-        </div> <!-- end featured collection panel --> 
+        </div>  
     </div>
-</div>
-<?php endif; ?> <!-- End Featured Collection -->
+</div> <!-- end featured collection panel -->
+<?php endif; ?>
 
-<!--begin recent items-->
 <?php if (get_theme_option('Homepage Recent Items') !== '0'): ?>
 <div class="row">
     <div class="twelve columns">

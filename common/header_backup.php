@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="no-js" lang="<?php echo get_html_lang(); ?>">
+<html class="no-js" lang="<?php echo get_html_lang(); ?>
+    ">
 <head>
     <meta charset="utf-8">
 
@@ -7,7 +8,8 @@
     <meta name="viewport" content="width=device-width" />
 
     <?php if ( $description = settings('description')): ?>
-    <meta name="description" content="<?php echo $description; ?>" />
+    <meta name="description" content="<?php echo $description; ?>
+    " />
     <?php endif; ?>
 
     <title><?php echo settings('site_title'); echo isset($title) ? ' | ' . strip_formatting($title) : ''; ?></title>
@@ -30,8 +32,7 @@
     <?php 
     queue_js(array('modernizr.foundation', 'foundation.min', 'jquery', 'app', 'jquery.foundation.orbit'));
     display_js(); 
-    ?>
-</head>
+    ?></head>
     <?php echo body_tag(array('id' =>
     @$bodyid, 'class' => @$bodyclass)); ?>
     <?php plugin_body(); ?>
@@ -57,23 +58,16 @@
                             <li class="has-dropdown">
                                 <a href="<?php echo uri('collections'); ?>">COLLECTIONS</a>
                                 <ul class="dropdown">
-                                    
- 
- <?php if (has_collections()): ?>
-
- <?php set_collections_for_loop(recent_collections(5)); ?> 
-
- <?php while (loop_collections()): ?> 
-
- <li><?php echo link_to_collection(); ?></li>
-
- <?php endwhile; ?> 
-
- <?php endif; ?> 
-
-
-
-                                </ul>
+                                    <?php set_collections_for_loop(recent_collections(11)); ?>
+                                    <?php if (has_collections_for_loop()): ?>
+                                    <ul class="collections-list">
+                                        <?php while (loop_collections()): ?>
+                                        <li class="collection">
+                                            <?php echo link_to_collection(); ?></li>
+                                        <?php endwhile; ?></ul>
+                                    <?php else: ?>
+                                    <p>No recent collections available.</p>
+                                    <?php endif; ?></ul>
                             </li>
                         </ul>
                         <ul class="right">
@@ -84,8 +78,7 @@
                                         <button type="submit" name="submit_search" value="Search" class="secondary radius button">Search</button>
                                     </form>
                                 </div>
-                                <!-- end search -->
-                            </li>
+                                <!-- end search --> </li>
                         </ul>
                     </section>
                 </nav>
